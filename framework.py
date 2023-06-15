@@ -92,9 +92,12 @@ class ChatBot():
                 }
 
                 for i in range(0, len(function_args)):
+                    
+                    args_split = attr_value.args[i].split("::")
+
                     function_description["parameters"]["properties"][function_args[i]] = {
-                        "type": "string",
-                        "description": attr_value.args[i]
+                        "type": args_split[1] if len(args_split) > 1 else "string",
+                        "description": args_split[0]
                     }
 
                 self.function_descriptions.append(function_description)
