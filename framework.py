@@ -79,7 +79,7 @@ class ChatBot():
         for _, attr_value in self.__class__.__dict__.items():
             if callable(attr_value) and hasattr(attr_value, "description") and hasattr(attr_value, "args"):
 
-                function_args = list(attr_value.__code__.co_varnames)[1:]
+                function_args = list(attr_value.__code__.co_varnames)[1:][:attr_value.__code__.co_argcount - 1]
 
                 function_description = {
                     "name": attr_value.__name__,
