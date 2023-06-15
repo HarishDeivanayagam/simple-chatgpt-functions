@@ -18,9 +18,10 @@ class FooBot(ChatBot):
 2. @chatfunc decorator is used to notify its a chatbot function
    - Description tells the ChatGPT when to use the function
    - Args tells the ChatGPT about the description of the arguments 
+   - You can add types to argument by using '::' operator followed by type name (If no type is specified it is taken as string)
 
 ```
-@chatfunc(description="Foo Func", args=["pass an bar"])
+@chatfunc(description="Foo Func", args=["pass an bar ::string"])
 def foo(self, bar):
     return f"""
     Func func call completed. Here is the output
